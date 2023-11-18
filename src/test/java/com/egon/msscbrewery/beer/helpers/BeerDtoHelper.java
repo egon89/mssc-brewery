@@ -5,9 +5,9 @@ import com.egon.msscbrewery.beer.dtos.BeerDto;
 import java.util.UUID;
 
 public class BeerDtoHelper {
-  private static final UUID ID = UUID.fromString("aeb60d96-6aa1-4c2e-a82b-1683a7439d47");
-  private static final String NAME = "Beer 1";
-  private static final String STYLE = "Style 1";
+  public static final UUID ID = UUID.fromString("aeb60d96-6aa1-4c2e-a82b-1683a7439d47");
+  public static final String NAME = "Beer 1";
+  public static final String STYLE = "Style 1";
 
   public static BeerDto create() {
     return beerDtoBuilder().build();
