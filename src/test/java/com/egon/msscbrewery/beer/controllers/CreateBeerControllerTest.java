@@ -1,5 +1,6 @@
 package com.egon.msscbrewery.beer.controllers;
 
+import com.egon.msscbrewery.beer.dtos.BeerDto;
 import com.egon.msscbrewery.beer.helpers.BeerDtoHelper;
 import com.egon.msscbrewery.beer.services.CreateBeerService;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -12,8 +13,7 @@ import org.springframework.test.web.servlet.MockMvc;
 
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.BDDMockito.given;
-import static org.mockito.Mockito.times;
-import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
@@ -45,5 +45,17 @@ class CreateBeerControllerTest {
         .content(beerDtoJson))
         .andExpect(status().isCreated());
     verify(service, times(1)).execute(beerDto);
+  }
+
+  @Test
+  void shouldReturnBadRequestErrorWhenFieldsAreInvalid() throws Exception {
+    var beerDto = BeerDto.builder().build();
+    var beerDtoJson = objectMapper.writeValueAsString(beerDto);
+
+    mockMvc.perform(post("/api/v1/beers")
+                    .contentType(MediaType.APPLICATION_JSON)
+                    .content(beerDtoJson))
+            .andExpect(status().isUnprocessableEntity());
+    verify(service, never()).execute(any());
   }
 }

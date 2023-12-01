@@ -9,6 +9,8 @@ public class BeerDtoHelper {
   public static final String NAME = "Beer 1";
   public static final String STYLE = "Style 1";
 
+  public static final Long UPC = 345678L;
+
   public static BeerDto create() {
     return beerDtoBuilder().build();
   }
@@ -29,6 +31,7 @@ public class BeerDtoHelper {
     return BeerDto.builder()
         .id(ID)
         .name(NAME)
-        .style(STYLE);
+        .style(STYLE)
+        .upc(UPC);
   }
 }
