@@ -5,6 +5,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.sql.Timestamp;
 import java.util.UUID;
 
 @Data
@@ -16,4 +17,6 @@ public class BeerEntity {
     private String name;
     private String style;
     private Long upc;
+    private Timestamp createdAt;
+    private Timestamp updatedAt;
 }
