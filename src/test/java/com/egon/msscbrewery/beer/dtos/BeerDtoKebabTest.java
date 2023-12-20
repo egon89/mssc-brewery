@@ -14,7 +14,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 @ActiveProfiles("kebab")
 @JsonTest
 class BeerDtoKebabTest {
-  public static final String JSON_VALUE = "{\"id\":\"aeb60d96-6aa1-4c2e-a82b-1683a7439d47\",\"name\":\"Beer 1\",\"style\":\"Style 1\",\"upc\":345678,\"created-at\":null,\"updated-at\":null}";
+  public static final String JSON_VALUE = "{\"id\":\"aeb60d96-6aa1-4c2e-a82b-1683a7439d47\",\"name\":\"Beer 1\",\"style\":\"Style 1\",\"upc\":345678,\"created-at\":\"2023-12-19T00:00:00Z\",\"updated-at\":\"2023-12-20T00:00:00Z\",\"due-date\":\"20241219\"}";
   @Autowired
   ObjectMapper objectMapper;
 
